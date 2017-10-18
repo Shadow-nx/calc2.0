@@ -1,7 +1,5 @@
 # calc2.0
 
-# calc1.4
-
 Сборка проекта
 ```
 cl /EHsc main.cpp
