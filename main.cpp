@@ -92,7 +92,7 @@ int main(int argc,char*argv[]) {
 			i--;
 		}
 	}
-	cout<<result[0]<<endl;
+	cout<<"Ответ:"<<result[0]<<endl;
 
 	return 0;
 }
