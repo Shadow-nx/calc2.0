@@ -32,6 +32,7 @@ int main(int argc,char*argv[]) {
 		else k++;
 
 	int result[1]= {0};
+	if(strlen(oper)>1){
 	for(int i=0; i<strlen(oper); i++) {
 		if((char)oper[i]=='*') {
 			result[0]=z[i]*z[i+1];
@@ -92,6 +93,7 @@ int main(int argc,char*argv[]) {
 			i--;
 		}
 	}
+}
 	cout<<"Ответ:"<<result[0]<<endl;
 
 	return 0;
