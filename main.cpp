@@ -44,7 +44,7 @@ int main(int argc,char*argv[]) {
 						oper[j]=oper[j+1];
 						oper[j+1]='0';
 					}
-					for(int k=i; k<count-1; k++) {
+					for(int k=i; k<count-2; k++) {
 						z[k+1]=z[k+2];
 						z[k+2]=0;
 						z[i]=result;
@@ -67,7 +67,7 @@ int main(int argc,char*argv[]) {
 						oper[j]=oper[j+1];
 						oper[j+1]='0';
 					}
-					for(int k=i; k<count-1; k++) {
+					for(int k=i; k<count-2; k++) {
 						z[k+1]=z[k+2];
 						z[k+2]=0;
 						z[i]=result;
@@ -89,7 +89,7 @@ int main(int argc,char*argv[]) {
 						oper[j]=oper[j+1];
 						oper[j+1]='0';
 					}
-					for(int k=i; k<count-1; k++) {
+					for(int k=i; k<count-2; k++) {
 						z[k+1]=z[k+2];
 						z[k+2]=0;
 						z[i]=result;
@@ -111,7 +111,7 @@ int main(int argc,char*argv[]) {
 						oper[j]=oper[j+1];
 						oper[j+1]='0';
 					}
-					for(int k=i; k<count-1; k++) {
+					for(int k=i; k<count-2; k++) {
 						z[i]=result;
 						z[k+1]=z[k+2];
 						z[k+2]=0;
