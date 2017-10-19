@@ -33,14 +33,7 @@ int main(int argc,char*argv[]) {
 		if(x[i]>='0'&&x[i]<='9')
 			z[k]=z[k]*10+x[i]-'0';
 		else k++;
-
-	for(int i=0; i<count; i++)
-		cout<<z[i]<<" ";
-	cout<<endl;
-	for(int i=0; i<count2; i++)
-		cout<<oper[i]<<" ";
-	cout<<endl;
-
+	
 	double result=0;
 	if(strlen(oper)>1) {
 		for(int i=0; i<strlen(oper); i++) {
