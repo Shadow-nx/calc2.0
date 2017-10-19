@@ -3,6 +3,7 @@
 
 using namespace std;
 
+
 int main(int argc,char*argv[]) {
 	char *x=argv[1];
 	int count=1;
@@ -33,84 +34,115 @@ int main(int argc,char*argv[]) {
 			z[k]=z[k]*10+x[i]-'0';
 		else k++;
 
-	double result[1]= {0};
+	for(int i=0; i<count; i++)
+		cout<<z[i]<<" ";
+	cout<<endl;
+	for(int i=0; i<count2; i++)
+		cout<<oper[i]<<" ";
+	cout<<endl;
+
+	double result=0;
 	if(strlen(oper)>1) {
 		for(int i=0; i<strlen(oper); i++) {
-			if((char)oper[i]=='*') {
-				result[0]=z[i]*z[i+1];
-				for(int j=i; j<strlen(oper)-1; j++) {
-					oper[j]=oper[j+1];
-					oper[j+1]='0';
-				}
-				for(int k=i; k<count-1; k++) {
-					z[k+1]=z[k+2];
-					z[k+2]=0;
-					z[i]=result[0];
-				}
-				z[count-1]=0;
-				i--;
-			}
-		}
-		for(int i=0; i<strlen(oper); i++) {
 			if((char)oper[i]=='/') {
-				result[0]=z[i]/z[i+1];
-				for(int j=i; j<strlen(oper)-1; j++) {
-					oper[j]=oper[j+1];
-					oper[j+1]='0';
+				result=z[i]/z[i+1];
+				if(i<(count2-1)) {
+					for(int j=i; j<strlen(oper); j++) {
+						oper[j]=oper[j+1];
+						oper[j+1]='0';
+					}
+					for(int k=i; k<count-1; k++) {
+						z[k+1]=z[k+2];
+						z[k+2]=0;
+						z[i]=result;
+					}
+					z[count-1]=0;
+					i--;
+				} else if(i==(count2-1)) {
+					z[i]=result;
+					z[i+1]=0;
+					oper[count2-1]='0';
 				}
-				for(int k=i; k<count-1; k++) {
-					z[k+1]=z[k+2];
-					z[k+2]=0;
-					z[i]=result[0];
-				}
-				z[count-1]=0;
-				i--;
 			}
 		}
 
 		for(int i=0; i<strlen(oper); i++) {
+			if((char)oper[i]=='*') {
+				result=z[i]*z[i+1];
+				if(i<(count2-1)) {
+					for(int j=i; j<strlen(oper); j++) {
+						oper[j]=oper[j+1];
+						oper[j+1]='0';
+					}
+					for(int k=i; k<count-1; k++) {
+						z[k+1]=z[k+2];
+						z[k+2]=0;
+						z[i]=result;
+					}
+					z[count-1]=0;
+					i--;
+				} else if(i==(count2-1)) {
+					z[i]=result;
+					z[i+1]=0;
+					oper[count2-1]='0';
+				}
+			}
+		}
+		for(int i=0; i<strlen(oper); i++) {
 			if((char)oper[i]=='-') {
-				result[0]=z[i]-z[i+1];
-				for(int j=i; j<strlen(oper)-1; j++) {
-					oper[j]=oper[j+1];
-					oper[j+1]='0';
+				result=z[i]-z[i+1];
+				if(i<(count2-1)) {
+					for(int j=i; j<strlen(oper); j++) {
+						oper[j]=oper[j+1];
+						oper[j+1]='0';
+					}
+					for(int k=i; k<count-1; k++) {
+						z[k+1]=z[k+2];
+						z[k+2]=0;
+						z[i]=result;
+					}
+					z[count]=0;
+					i--;
+				} else if(i==(count2-1)) {
+					z[i]=result;
+					z[i+1]=0;
+					oper[count2-1]='0';
 				}
-				for(int k=i; k<count-1; k++) {
-					z[k+1]=z[k+2];
-					z[k+2]=0;
-					z[i]=result[0];
-				}
-				z[count-1]=0;
-				i--;
 			}
 		}
 		for(int i=0; i<strlen(oper); i++) {
 			if((char)oper[i]=='+') {
-				result[0]=z[i]+z[i+1];
-				for(int j=i; j<strlen(oper)-1; j++) {
-					oper[j]=oper[j+1];
-					oper[j+1]='0';
+				result=z[i]+z[i+1];
+				if(i<(count2-1)) {
+					for(int j=i; j<strlen(oper); j++) {
+						oper[j]=oper[j+1];
+						oper[j+1]='0';
+					}
+					for(int k=i; k<count-1; k++) {
+						z[i]=result;
+						z[k+1]=z[k+2];
+						z[k+2]=0;
+					}
+					z[count-1]=0;
+					i--;
+				} else if(i==(count2-1)) {
+					z[i]=result;
+					z[i+1]=0;
+					oper[count2-1]='0';
 				}
-				for(int k=i; k<count-1; k++) {
-					z[i]=result[0];
-					z[k+1]=z[k+2];
-					z[k+2]=0;
-				}
-				z[count-1]=0;
-				i--;
 			}
 		}
 	} else {
 		if(oper[0]=='*')
-			result[0]=z[0]*z[1];
+			result=z[0]*z[1];
 		if(oper[0]=='/')
-			result[0]=z[0]/z[1];
+			result=z[0]/z[1];
 		if(oper[0]=='+')
-			result[0]=z[0]+z[1];
+			result=z[0]+z[1];
 		if(oper[0]=='-')
-			result[0]=z[0]-z[1];
+			result=z[0]-z[1];
 	}
-	cout<<"Result:"<<result[0]<<endl;
+	cout<<"Result:"<<result<<endl;
 
 	return 0;
 }
