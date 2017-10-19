@@ -110,7 +110,7 @@ int main(int argc,char*argv[]) {
 		if(oper[0]=='-')
 			result[0]=z[0]-z[1];
 	}
-	cout<<"Ответ:"<<result[0]<<endl;
+	cout<<"Result:"<<result[0]<<endl;
 
 	return 0;
 }
